@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML & CSS Grid Template</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/406b4463e4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="CODE WITH HAMA-LOG.png" class="logo">
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Details</a></li>
+          <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ---------------hero---------------- -->
+  <div id="header">
+    <section class="full-width-height">
+      <img class="bg" src="header2_bg_big.png" />
+      <div class="header-char">
+        <div class="img-holder">
+          <img class="tail" src="header_tail.png" />
+        </div>
+        <div class="img-holder">
+          <img class="body" src="header_front.png" />
+        </div>
+        <div class="img-holder">
+          <div class="head">
+            <img src="header_head.png" />
+            <img class="eyes" src="header2_eyes.png" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="about"><section class="grid-3-columns">
+    <div class="grid-item">
+      <img src="bunny.png" />
+      <h2>Earth Bunny</h2>
+    </div>
+    <div class="grid-item">
+      <img src="firedeer.png" />
+      <h2>Fire Deer</h2>
+    </div>
+    <div class="grid-item">
+      <img src="waterbeaver.png" />
+      <h2>Water Beaver</h2>
+    </div>
+  </section></div>
+
+ <div id="services"> <section class="grid-4-columns">
+  <div class="grid-item">
+    <div class="grid-item-top">
+      <h3>Ooichu</h3>
+      <p>
+        Ooichu is a small, cute, and fluffy creature. It is a rabbit-like
+        creature that lives in the forest. It is a very shy creature and
+        doesn't like to be around people. It is very friendly and likes to
+        play with other creatures.
+      </p>
+      <button>Details</button>
+    </div>
+    <div class="grid-item-bottom">
+      <img src="earth.png" />
+    </div>
+
+  </div>
+  <div class="grid-item">
+    <div class="grid-item-top">
+      <h3>Yukkuri</h3>
+      <p>
+        Yukkuri is a deer-like creature that lives in the forest. It is a very
+        shy creature and doesn't like to be around people. It is very friendly
+        and likes to play with other creatures.
+      </p>
+      <button>Details</button>
+    </div>
+    <div class="grid-item-bottom">
+      <img src="fuzzy.png" />
+    </div>
+
+  </div>
+  <div class="grid-item">
+    <div class="grid-item-top">
+
+      <h3>Umi</h3>
+      <p>
+        Umi is a beaver-like creature that lives in the forest. It is a very
+        shy creature and doesn't like to be around people. It is very friendly
+        and likes to play with other creatures.
+      </p>
+      <button>Details</button>
+    </div>
+    <div class="grid-item-bottom">
+      <img src="water.png" />
+    </div>
+
+  </div>
+  <div class="grid-item">
+    <div class="grid-item-top">
+      <h3>Shinrin</h3>
+      <p>
+        Shinrin is a plant-like creature that lives in the forest. It is a
+        very shy creature and doesn't like to be around people. It is very
+        friendly and likes to play with other creatures.
+      </p>
+      <button>Details</button>
+    </div>
+    <div class="grid-item-bottom">
+      <img src="plant.png" />
+    </div>
+  </div>
+
+</section></div>
+
+  <script>
+
+    var tablinks = document.getElementsByClassName("tab-links")
+    var tabcontents = document.getElementsByClassName("tab-contents")
+
+    function opentab(tabname) {
+      for (tablink of tablinks) {
+        tablink.classList.remove("active-link");
+      }
+      for (tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab")
+    }
+  </script>
+
+  <script>
+    var sidemenu = document.getElementById("sidemenu")
+
+    function openmenu() {
+      sidemenu.style.right = "0";
+    }
+    function closemenu() {
+      sidemenu.style.right = "-200px";
+    }
+
+  </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxdzCO7tKXBQBFnOmnUox7N3_n4IKJGD8W8eyMr6IQuUrff4vLp1b0yTZFUaW8Avr1I1A/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Message sent successfully"
+          setTimeout(function () {
+            msg.innerHTML = ""
+          }, 5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  <div class="copyrihgt">
+    <p>Copyright © Hamza. Made <i class="fa-solid fa-heart"></i> with by HAMZA ZIA KHAN </p>
+  </div>
+  </div>
+
+</body>
+
+</html>
